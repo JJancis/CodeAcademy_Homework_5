@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "dancing script", sans-serif;
+}
+
+.scene {
+  width: 100%;
+  height: 100vh;
+  background: url(./images/background.jpg);
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+.scene img {
+  position: absolute;
+}
+.astronaut {
+  top: 305px;
+  right: 50px;
+  width: 150px;
+  animation: astronaut-move 20s infinite alternate;
+}
+.ship {
+  top: 150px;
+  left: 300px;
+  width: 150px;
+  transform: scale(0);
+  animation: ship-move 25s 1s infinite;
+}
+.comet1,
+.comet2,
+.comet3 {
+  width: 200px;
+}
+.comet1 {
+  animation: comet-move1 35s 10s infinite;
+  top: 200px;
+  left: -200px;
+}
+.comet2 {
+  animation: comet-move2 15s 10s infinite;
+  top: 450px;
+  left: -200px;
+}
+.comet3 {
+  animation: comet-move2 20s 5s infinite;
+  top: 800px;
+  left: -200px;
+}
+
+.moon {
+  bottom: -200px;
+  right: -150px;
+  width: 600px;
+  animation: moon-move 50s infinite;
+}
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.content {
+  position: relative;
+}
+.content h2 {
+  font-size: 15em;
+  padding: 20px;
+  position: absolute;
+  transform: translate(-50%, -230%);
+}
+.content h2:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 3px #fafafa7c;
+}
+.content h2:nth-child(2) {
+  color: #ffffff5b;
+  animation: animate 7s ease-in-out infinite;
+}
+button {
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+  transform: translate(-50%, -650%);
+}
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: linear-gradient(
+    to left,
+    hsl(340deg 100% 16%) 0%,
+    hsl(340deg 100% 32%) 8%,
+    hsl(340deg 100% 32%) 92%,
+    hsl(340deg 100% 16%) 100%
+  );
+}
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 5px;
+  font-size: 2rem;
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+button:hover {
+  filter: brightness(120%);
+}
+button:hover .front {
+  transform: translateY(-8px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+button:active .front {
+  transform: translateY(-3px);
+  transition: transform 34ms;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+@keyframes astronaut-move {
+  to {
+    transform: translate(-850px, -160px) rotate(-380deg);
+  }
+}
+@keyframes ship-move {
+  25% {
+    transform: scale(0.5) translate(-150px, -25px);
+  }
+  50%,
+  100% {
+    transform: scale(3) translate(900px, 800px);
+  }
+}
+@keyframes comet-move1 {
+  to {
+    transform: translate(700px, -500px);
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes comet-move2 {
+  to {
+    transform: translate(800px, -800px);
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes comet-move3 {
+  to {
+    transform: translate(100px, -1300px);
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes moon-move {
+  to {
+    transform: rotate(360deg);
+  }
+}
